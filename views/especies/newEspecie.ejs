@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Nuevo especie</title>
+    <style>
+        body {
+            background: rgb(52,86,50);
+            background: radial-gradient(circle, rgba(52,86,50,1) 0%, rgba(60,93,53,1) 45%, rgba(122,173,115,1) 100%);
+        }
+        .card {
+            margin: 0 auto; /* Centrar el card */
+            float: none;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card bg-light mb-3" style="max-width: 50rem;">
+            <div class="card-header">
+                Agregar
+            </div>
+            <div class="card-body">
+                <h1 class="mb-4">Especie</h1>
+                <form action="/especies" method="POST">
+                    <div class="form-group">
+                        <label for="especie_id">Especie ID</label>
+                        <input type="number" class="form-control" name="especie_id" id="especie_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreComun">Nombre Común</label>
+                        <input type="text" class="form-control" name="nombreComun" id="nombreComun" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreCientifico">Nombre Científico</label>
+                        <input type="text" class="form-control" name="nombreCientifico" id="nombreCientifico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Clasificacion">Clasificación</label>
+                        <select name="clasificacion" id="clasificacion" required>
+                            <option value="ave">Ave</option>
+                            <option value="mamíferos">Mamíferos</option>
+                            <option value="anfibios">Anfibios</option>
+                            <option value="reptiles">Reptiles</option>
+                            <option value="peces">Peces</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="/" class="btn btn-secondary">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
