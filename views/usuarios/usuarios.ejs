@@ -39,15 +39,14 @@
       >
         <!-- Sidebar - Brand -->
         <a
-          class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
-        >
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-hippo"></i>
-          </div>
-          <div class="sidebar-brand-text mx-3">Biblioteca</div>
-        </a>
-
+        class="sidebar-brand d-flex align-items-center justify-content-center"
+        href="index.html"
+      >
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Biblioteca</div>
+      </a>
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
@@ -73,41 +72,41 @@
         <!-- Heading -->
         <div class="sidebar-heading">Interface</div>
 
-        <!-- Nav Item - usuarios -->
+        <!-- Nav Item - ESPECIES -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-kiwi-bird"></i>
-            <span>Usuarios</span></a
-          >
-        </li>
-         <!-- Nav Item - ESPECIES -->
+
+         <a class="nav-link" href="/libros">
+           <i class="fas fa-bookmark"></i>
+           <span>Libros</span></a
+         >
+       </li>
+         
+       <li class="nav-item">
+           <a class="nav-link" href="/generos">
+             <i class="fas fa-list"></i>
+             <span>Generos</span></a
+           >
+         </li>
+
          <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-              <i class="fas fa-feather"></i>
-              <span>Libros</span></a
-            >
-          </li>
-           <!-- Nav Item - Prestamos -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-              <i class="fas fa-tree"></i>
-              <span>Prestamos</span></a
-            >
-          </li>
-           <!-- Nav Item - EMPLEADOS -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-              <i class="fas fa-user"></i>
-              <span>Empleados</span></a
-            >
-          </li>
-           <!-- Nav Item - Generos -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-              <i class="fas fa-users"></i>
-              <span>Generos</span></a
-            >
-          </li>
+           <a class="nav-link" href="/autores">
+             <i class="fas fa-pen"></i>
+             <span>Autores</span></a
+           >
+         </li>
+
+         <li class="nav-item">
+           <a class="nav-link" href="/usuarios">
+             <i class="fas fa-user"></i>
+             <span>Usuarios</span></a
+           >
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="/prestamos">
+             <i class="fas fa-inbox"></i>
+             <span>Prestamos</span></a
+           >
+         </li>
           
       </ul>
       <!-- End of Sidebar -->
@@ -163,42 +162,42 @@
 
             <!-- Content Row TABLAS-->
             <div class="row">
-                <div class="container mt-5">
-                    <h1 class="mb-4">Usuarios</h1>
-                    <a href="/usuarios/new" class="btn btn-primary mb-3">Agregar nuevo usuario</a>
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Usuario_id</th>
-                                <th>Nombre </th>
-                                <th>Apellido</th>
-                                <th>Correo </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% usuarios.forEach(usuario => { %>
-                                <tr>
-                                    <td><%= usuario.usuariousuario_id %></td>
-                                    <td><%= usuario.nombre %></td>
-                                    <td><%= usuario.apellido %></td>
-                                    <td><%= usuario.Correo %></td>
-                                    <td>
+              <div class="container mt-5">
+                  <h1 class="mb-4">Usuarios</h1>
+                  <a href="/usuarios/new" class="btn btn-primary mb-3">Agregar nuevo usuario</a>
+                  <table class="table table-bordered table-striped">
+                      <thead class="thead-dark">
+                          <tr>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>Email</th>
+                              <th>Teléfono</th>
+                              <th>Acciones</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% usuarios.forEach(usuario => { %>
+                              <tr>
+                                  <td><%= usuario.nombre %></td>
+                                  <td><%= usuario.apellido %></td>
+                                  <td><%= usuario.email %></td> 
+                                  <td><%= usuario.telefono %></td> 
+                                  <td>
                                       <a href="/usuarios/edit/<%= usuario._id %>" class="btn btn-warning btn-sm">
-                                        <i class="fas fa-edit"></i> Editar
-                                    </a>
-                                            <form action="/usuarios/usuarios/delete/<%= usuario._id %>" method="POST" style="display:inline;">
-                                              <button type="submit" class="btn btn-danger btn-sm">
-                                                  <i class="fas fa-trash"></i> Eliminar
-                                              </button>
-                                          </form>
-                                    </td>
-                                </tr>
-                            <% }); %>
-                        </tbody>
-                    </table>
-                </div> 
-            </div>
+                                          <i class="fas fa-edit"></i> Editar
+                                      </a>
+                                      <form action="/usuarios/delete/<%= usuario._id %>" method="POST" style="display:inline;"> <!-- Cambié la ruta a '/usuarios/delete/' -->
+                                          <button type="submit" class="btn btn-danger btn-sm">
+                                              <i class="fas fa-trash"></i> Eliminar
+                                          </button>
+                                      </form>
+                                  </td>
+                              </tr>
+                          <% }); %>
+                      </tbody>
+                  </table>
+              </div> 
+          </div>
           </div>
           <!-- /.container-fluid -->
         </div>

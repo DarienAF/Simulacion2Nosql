@@ -12,7 +12,7 @@
     <meta name="author" content="" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Simulacion 3 Home</title>
+    <title>Prestamos</title>
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -151,11 +151,45 @@
           <div class="container-fluid">
             <!-- Page Heading -->
 
-            <!-- Content Row TABLAS-->
-       
-               <h1>Bienvenido a la SImulacion 3</h1><br>
-               <h2>La Biblioteca</h2><br>
-               <p>Utilice el menu del Dashboard para gestionar las colecciones de datos</p>
+            <div class="row">
+              <div class="container mt-5">
+                  <h1 class="mb-4">Préstamos</h1>
+                  <a href="/prestamos/new" class="btn btn-primary mb-3">Agregar nuevo préstamo</a>
+                  <table class="table table-bordered table-striped">
+                      <thead class="thead-dark">
+                          <tr>
+                              <th>Libro</th>
+                              <th>Usuario</th>
+                              <th>Fecha de Préstamo</th>
+                              <th>Fecha de Devolución</th>
+                              <th>Estado</th>
+                              <th>Acciones</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% prestamos.forEach(prestamo => { %>
+                              <tr>
+                                  <td><%= prestamo.libro %></td>
+                                  <td><%= prestamo.usuario %></td>
+                                  <td><%= prestamo.fecha_prestamo.toLocaleDateString() %></td>
+                                  <td><%= prestamo.fecha_devolucion.toLocaleDateString() %></td>
+                                  <td><%= prestamo.estado %></td>
+                                  <td>
+                                      <a href="/prestamos/edit/<%= prestamo._id %>" class="btn btn-warning btn-sm">
+                                          <i class="fas fa-edit"></i> Editar
+                                      </a>
+                                      <form action="/prestamos/delete/<%= prestamo._id %>" method="POST" style="display:inline;">
+                                          <button type="submit" class="btn btn-danger btn-sm">
+                                              <i class="fas fa-trash"></i> Eliminar
+                                          </button>
+                                      </form>
+                                  </td>
+                              </tr>
+                          <% }); %>
+                      </tbody>
+                  </table>
+              </div> 
+          </div>
            
           </div>
           <!-- /.container-fluid -->

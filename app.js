@@ -5,7 +5,8 @@ const itemsRoutes = require('./routes/items');
 const generosRoutes = require('./routes/generos');
 const autoresRoutes = require('./routes/autores');
 const librosRoutes = require('./routes/libros');
-
+const usuarioRoutes = require('./routes/usuarios');
+const prestamoRoutes = require('./routes/prestamos');
 
 const path = require('path');
 
@@ -32,11 +33,11 @@ mongoose.connect('mongodb://localhost:27017/Simulacion3', {
 
 // Rutas
 app.use('/libros', librosRoutes);
-
-
 app.use('/generos', generosRoutes);
 app.use('/autores', autoresRoutes);
-
+// Configurar ruta
+app.use('/usuarios', usuarioRoutes);
+app.use('/prestamos', prestamoRoutes)
 app.use('/', itemsRoutes);
 
 
