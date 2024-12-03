@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // Conexión a MongoDB
-mongoose.connect('mongodb://localhost:27017/ZooProyecto', {
+mongoose.connect('mongodb://localhost:27017/Simulacion3', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
