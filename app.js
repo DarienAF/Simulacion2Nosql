@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const itemsRoutes = require('./routes/items');
-
-const especiesRoutes = require('./routes/especies');
+const generosRoutes = require('./routes/generos');
+const autoresRoutes = require('./routes/autores');
 const librosRoutes = require('./routes/libros');
 
 
@@ -34,7 +34,8 @@ mongoose.connect('mongodb://localhost:27017/Simulacion3', {
 app.use('/libros', librosRoutes);
 
 
-app.use('/especies', especiesRoutes);
+app.use('/generos', generosRoutes);
+app.use('/autores', autoresRoutes);
 
 app.use('/', itemsRoutes);
 
