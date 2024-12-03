@@ -76,12 +76,11 @@
 
          <!-- Nav Item - ESPECIES -->
          <li class="nav-item">
-          <a class="nav-link" href="/libros">
-            <i class="fas fa-bookmark"></i>
-            <span>Libros</span></a
-          >
-        </li>
-          
+            <a class="nav-link" href="/libros">
+              <i class="fas fa-bookmark"></i>
+              <span>Libros</span></a
+            >
+          </li>
 
       </ul>
       <!-- End of Sidebar -->
@@ -110,9 +109,7 @@
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Grupo 4</span
-                  >
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Grupo 4</span>
                   
                 </a>
               </li>
@@ -125,25 +122,52 @@
             <!-- Page Heading -->
 
             <!-- Content Row TABLAS-->
-       
-               <h1>Bienvenido al Sistema</h1><br>
-               <h2>Administración Zoo</h2><br>
-               <p>Utilice el menu del Dashboard para gestionar las colecciones de datos</p>
+<input type="checkbox" id="bookFilter" onchange="bookFilter()">
+         
+<div class="row">
+    <div class="container mt-5">
+      <h1 class="mb-4">Lista de Libros</h1>
+      <a href="/libros/new" class="btn btn-primary mb-3">Agregar nuevo libro</a>
+      <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Título</th>
+                  <th>Autor</th>
+                  <th>Año de Publicación</th>
+                  <th>Género</th>
+                  <th>Ubicación</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% libros.forEach(libro => { %>
+                  <tr>
+                      <td>
+                          <a href="/libros/<%= libro._id %>"><%= libro.titulo %></a>
+                      </td>
+                      <td><%= libro.autor %></td>
+                      <td><%= libro.anio_publicacion %></td>
+                      <td><%= libro.genero %></td>
+                      <td><%= libro.ubicacion %></td>
+                      <td>
+                          <a href="/libros/edit/<%= libro._id %>" class="btn btn-warning btn-sm">
+                              <i class="fas fa-edit"></i> Editar</a>
+                          <form action="/libros/delete/<%= libro._id %>" method="POST" style="display:inline;">
+                              <button type="submit" class="btn btn-danger btn-sm"> 
+                                  <i class="fas fa-trash"></i> Eliminar</button>
+                          </form>
+                      </td>
+                  </tr>
+              <% }); %>
+          </tbody>
+      </table>
+  </div>
            
           </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2024</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
     </div>

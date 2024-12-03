@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Editar Item</title>
+    <style>
+        body {
+            background: rgb(255,69,69);
+            background: linear-gradient(90deg, rgba(255,69,69,1) 0%, rgba(255,156,115,1) 35%, rgba(252,245,150,1) 100%);
+        }
+        .card {
+            margin: 0 auto; /* Centrar el card */
+            float: none;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card bg-light mb-3" style="max-width: 50rem;">
+            <div class="card-header">
+                Modificar Libro
+            </div>
+            <div class="card-body">
+                <h1 class="mb-4">Editar Libro</h1>
+                <form action="/libros/edit/<%= libro._id %>" method="POST">
+                    <!-- Campo Título -->
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" class="form-control" name="titulo" id="titulo" value="<%= libro.titulo %>" required>
+                    </div>
+                    
+                    <!-- Campo Autor -->
+                    <div class="form-group">
+                        <label for="autor">Autor</label>
+                        <input type="text" class="form-control" name="autor" id="autor" value="<%= libro.autor %>" required>
+                    </div>
+                    
+                    <!-- Campo Año de Publicación -->
+                    <div class="form-group">
+                        <label for="anio_publicacion">Año de Publicación</label>
+                        <input type="number" class="form-control" name="anio_publicacion" id="anio_publicacion" value="<%= libro.anio_publicacion %>" required>
+                    </div>
+                    
+                    <!-- Campo Género -->
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <input type="text" class="form-control" name="genero" id="genero" value="<%= libro.genero %>" required>
+                    </div>
+                    
+                    <!-- Campo Ubicación -->
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación</label>
+                        <input type="text" class="form-control" name="ubicacion" id="ubicacion" value="<%= libro.ubicacion %>" required>
+                    </div>
+    
+                    <!-- Botones -->
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a href="/libros" class="btn btn-secondary">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
