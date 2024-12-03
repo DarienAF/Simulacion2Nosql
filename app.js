@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const itemsRoutes = require('./routes/items');
+const generosRoutes = require('./routes/generos');
+const autoresRoutes = require('./routes/autores');
 
-const especiesRoutes = require('./routes/especies');
 
 const path = require('path');
 
@@ -19,7 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // Conexión a MongoDB
-mongoose.connect('mongodb://localhost:27017/ZooProyecto', {
+mongoose.connect('mongodb://localhost:27017/Simulacion3', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -30,7 +31,8 @@ mongoose.connect('mongodb://localhost:27017/ZooProyecto', {
 
 // Rutas
 
-app.use('/especies', especiesRoutes);
+app.use('/generos', generosRoutes);
+app.use('/autores', autoresRoutes);
 
 app.use('/', itemsRoutes);
 
