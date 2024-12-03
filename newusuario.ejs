@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Nuevo especie</title>
+    <title>Nuevo animal</title>
     <style>
         body {
             background: rgb(52,86,50);
@@ -24,31 +24,21 @@
                 Agregar
             </div>
             <div class="card-body">
-                <h1 class="mb-4">Especie</h1>
-                <form action="/especies" method="POST">
+                <h1 class="mb-4">Usuario</h1>
+                <form action="/animales" method="POST">
                     <div class="form-group">
-                        <label for="especie_id">Especie ID</label>
-                        <input type="number" class="form-control" name="especie_id" id="especie_id" required>
+                        <label for="nombre">Nombre</label>
+                        <input type="number" class="form-control" name="nombre" id="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="nombreComun">Nombre Común</label>
-                        <input type="text" class="form-control" name="nombreComun" id="nombreComun" required>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido" required>
                     </div>
                     <div class="form-group">
-                        <label for="nombreCientifico">Nombre Científico</label>
-                        <input type="text" class="form-control" name="nombreCientifico" id="nombreCientifico" required>
+                        <label for="Correo">Correo</label>
+                        <input type="text" class="form-control" name="Correo" id="Correo" required>
                     </div>
-                    <div class="form-group">
-                        <label for="Clasificacion">Clasificación</label>
-                        <select name="clasificacion" id="clasificacion" required>
-                            <option value="ave">Ave</option>
-                            <option value="mamíferos">Mamíferos</option>
-                            <option value="anfibios">Anfibios</option>
-                            <option value="reptiles">Reptiles</option>
-                            <option value="peces">Peces</option>
-                            <option value="otros">Otros</option>
-                        </select>
-                    </div>
+                   
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a href="/" class="btn btn-secondary">Volver</a>
                 </form>

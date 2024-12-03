@@ -19,4 +19,6 @@ function genderFilter() {
             genderItem.style.display = "none";
         }
     }
+
 }
+

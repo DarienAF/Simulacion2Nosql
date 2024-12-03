@@ -12,7 +12,7 @@
     <meta name="author" content="" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Especies</title>
+    <title>Items</title>
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -35,56 +35,54 @@
     <div id="wrapper">
       <!-- Sidebar -->
       <ul
-      class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-      id="accordionSidebar"
-    >
-      <!-- Sidebar - Brand -->
-      <a
-        class="sidebar-brand d-flex align-items-center justify-content-center"
-        href="index.html"
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
       >
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-hippo"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">The Zoo DB</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0" />
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="/">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
         >
-      </li>
-          <!-- Divider -->
-          <hr class="sidebar-divider d-none d-md-block" />
-
-          <!-- Sidebar Toggler (Sidebar) -->
-          <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-book"></i>
           </div>
+          <div class="sidebar-brand-text mx-3">Biblioteca</div>
+        </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider" />
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
 
-<!-- ENLACES CRUD ===========================================================================================================-->
-      <!-- Heading -->
-      <div class="sidebar-heading">Interface</div>
-
-      
-       <!-- Nav Item - ESPECIES -->
-       <li class="nav-item">
-          <a class="nav-link" href="/especies">
-            <i class="fas fa-feather"></i>
-            <span>Especies</span></a
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a
           >
         </li>
-     
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block" />
 
-    </ul>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+              <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+<!-- ENLACES CRUD ===========================================================================================================-->
+        <!-- Heading -->
+        <div class="sidebar-heading">Interface</div>
+
+         <!-- Nav Item - ESPECIES -->
+         <li class="nav-item">
+            <a class="nav-link" href="/especies">
+              <i class="fas fa-feather"></i>
+              <span>Especies</span></a
+            >
+          </li>
+
+      </ul>
       <!-- End of Sidebar -->
 <!-- FIN ENLACES CRUD =====================================================================================================-->
 
@@ -124,57 +122,49 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-    <!--      <div
-              class="d-sm-flex align-items-center justify-content-between mb-4"
-            >
-              <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-              <a
-                href="#"
-                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
-                Report</a
-              >
-            </div>-->  
 
             <!-- Content Row TABLAS-->
-            <div class="row">
-                <div class="container mt-5">
-                    <h1 class="mb-4">Especies</h1>
-                    <a href="/especies/new" class="btn btn-primary mb-3">Agregar nueva especie</a>
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>especie_id</th>
-                                <th>Nombre Comun</th>
-                                <th>Nombre Cientifico</th>
-                                <th>Clasificacion </th>
-                                <th>Acciones </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% especies.forEach(Especie => { %>
-                                <tr>
-                                    <td><%= Especie.especie_id %></td>
-                                    <td><%= Especie.nombreComun %></td>
-                                    <td><%= Especie.nombreCientifico %></td>
-                                    <td><%= Especie.clasificacion %></td>
-                                    <td>
-                                      <a href="/especies/edit/<%= Especie._id %>" class="btn btn-warning btn-sm">
-                                        <i class="fas fa-edit"></i> Editar
-                                    </a>
-                                      <form action="/especies/delete/<%= Especie._id %>" method="POST" style="display:inline;">
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i> Eliminar
-                                        </button>
-                                    </form>
-                                  
-                                    </td>
-                                </tr>
-                            <% }); %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<input type="checkbox" id="bookFilter" onchange="bookFilter()">
+         
+<div class="row">
+    <div class="container mt-5">
+      <h1 class="mb-4">Lista de Libros</h1>
+      <a href="/libros/new" class="btn btn-primary mb-3">Agregar nuevo libro</a>
+      <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Título</th>
+                  <th>Autor</th>
+                  <th>Año de Publicación</th>
+                  <th>Género</th>
+                  <th>Ubicación</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% libros.forEach(libro => { %>
+                  <tr>
+                      <td>
+                          <a href="/libros/<%= libro._id %>"><%= libro.titulo %></a>
+                      </td>
+                      <td><%= libro.autor %></td>
+                      <td><%= libro.anio_publicacion %></td>
+                      <td><%= libro.genero %></td>
+                      <td><%= libro.ubicacion %></td>
+                      <td>
+                          <a href="/libros/edit/<%= libro._id %>" class="btn btn-warning btn-sm">
+                              <i class="fas fa-edit"></i> Editar</a>
+                          <form action="/libros/delete/<%= libro._id %>" method="POST" style="display:inline;">
+                              <button type="submit" class="btn btn-danger btn-sm"> 
+                                  <i class="fas fa-trash"></i> Eliminar</button>
+                          </form>
+                      </td>
+                  </tr>
+              <% }); %>
+          </tbody>
+      </table>
+  </div>
+           
           </div>
           <!-- /.container-fluid -->
         </div>

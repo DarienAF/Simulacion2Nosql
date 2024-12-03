@@ -1,3 +1,4 @@
+
 function userFilter(){
     var input = document.getElementById('searchInput');
     var filter = input.value.toLowerCase();
@@ -17,5 +18,4 @@ function userFilter(){
             userItem.style.display = "none"; 
         }
         
-    }
-}
+    }}

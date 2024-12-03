@@ -24,22 +24,23 @@
                 Modificar
             </div>
             <div class="card-body">
-                <h1 class="mb-4">Item</h1>
-                <form action="/items/edit/<%= item._id %>" method="POST">
+                <h1 class="mb-4">Usuario</h1>
+                <form action="/usuarios/edit/<%= usuario._id %>" method="POST">
                     <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name" value="<%= item.name %>" required>
+                        <label for="nombre">Nombre</label>
+                        <input type="number" class="form-control" name="nombre" id="nombre" value="<%= animal.nombre %>" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <input type="text" class="form-control" name="description" id="description" value="<%= item.description %>" required>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido" value="<%= animal.apellido %>" required>
                     </div>
                     <div class="form-group">
-                        <label for="price">Precio</label>
-                        <input type="number" class="form-control" name="price" id="price" value="<%= item.price %>" required>
+                        <label for="Correo">Correo</label>
+                        <input type="text" class="form-control" name="Correo" id="Correo" value="<%= animal.Correo %>" required>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                    <a href="/" class="btn btn-secondary">Volver</a>
+                    <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>
